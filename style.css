@@ -1,0 +1,80 @@
+html{font-size: 20px;}
+
+body{
+    background-color: rgb(225, 240, 255);
+    font-family: 'Roboto Mono', monospace;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+body > fieldset{
+    width: 70%;
+    height: 85vh;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: .5rem .5rem 0 rgba(101, 101, 101, 0.505);
+}
+body > fieldset.scroll{
+    overflow-y: scroll;
+}
+
+form{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+h1{
+    margin: 0;
+    padding: .2rem .5rem;
+    background-color: white;
+    border-radius: .3rem;
+    border-style: solid;
+    border-width: .1rem;
+    border-color: rgb(146, 146, 146);
+    box-shadow: .5rem .5rem 0 rgba(101, 101, 101, 0.505);
+}
+
+table{
+    width: 100%;
+}
+
+tr{width: 100%;}
+th, td{
+    margin: 0;
+    padding: 0.05;
+    border-style: solid;
+    border-width: .1rem;
+    border-color: rgb(146, 146, 146);
+}
+
+a{
+    color: rgb(95, 124, 203);
+}
+a:hover{
+    color: rgb(180, 86, 86);
+}
+
+h3{
+    margin: .5rem 0;
+}
+
+select{
+    font-size: 1rem;
+    width: fit-content;
+}
+
+button{
+    width: 80%;
+    font-size: 1rem;
+    margin: .5rem auto;
+}
+
+.coasterId{
+    width: max-content;
+}
