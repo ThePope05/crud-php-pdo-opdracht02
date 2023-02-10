@@ -1,6 +1,6 @@
 <?php
 
-function retInfo(){
+function retInfo($catagory = null){
     include('config.php');
 
     $dsn = "mysql:host=$dbHost;dbname=$dbName;charset=UTF8";
@@ -11,9 +11,18 @@ function retInfo(){
         echo $e->getMessage();
     }
 
-    $sql = "SELECT * FROM rollercoaster";
+    if($catagory == null){
+        $sql = "SELECT * FROM rollercoaster";
+        
+        $statement = $pdo->prepare($sql);
+    }else{
+        $sql = "SELECT * FROM rollercoaster 
+        WHERE park = :park";
 
-    $statement = $pdo->prepare($sql);
+        $statement = $pdo->prepare($sql);
+
+        $statement->bindValue(":park", $catagory);
+    }
 
     $statement->execute();
 

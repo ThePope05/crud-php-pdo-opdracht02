@@ -12,39 +12,35 @@ try {
     echo $e->getMessage();
 }
 
-$sql = "UPDATE pizzas SET 
-    size = :size,
-    sauce = :sauce,
-    topping = :topping,
-    spices = :spices
+$sql = "UPDATE rollercoaster SET 
+    name = :name,
+    park = :park,
+    country = :country,
+    topSpeed = :topSpeed,
+    height = :height,
+    date = :date,
+    rating = :rating
+
     WHERE id = :id";
 
 $statement = $pdo->prepare($sql);
 
-$statement->bindValue(":size", $_POST["size"]);
-$statement->bindValue(":sauce", $_POST["sauce"]);
-$statement->bindValue(":topping", $_POST["topping"]);
+$statement->bindValue(":name", $_POST["name"]);
+$statement->bindValue(":park", $_POST["park"]);
+$statement->bindValue(":country", $_POST["country"]);
+$statement->bindValue(":topSpeed", $_POST["topSpeed"]);
+$statement->bindValue(":height", $_POST["height"]);
+$statement->bindValue(":date", $_POST["date"]);
+$statement->bindValue(":rating", $_POST["rating"]);
 $statement->bindValue(':id', $_POST['id']);
-
-$usedSpices = "";
-$allSpices = ["parsley", "oregano", "chiliFlakes", "blackPeper"];
-
-$i = 0;
-foreach($_POST as $item){
-    if(in_array($item, $allSpices)){
-        $usedSpices = $usedSpices . $item . " ";
-    }
-}
-
-$statement->bindValue(":spices", $usedSpices);
 
 $statement->execute();
 
 if($statement){
-    echo "Record is veranderd";
+    echo "Record is changed";
     header('Refresh:3; url=../index.php');
 }
 else{
-    echo "Record is niet veranderd";
+    echo "Record is not changed";
     header('Refresh:3; url=../index.php');
 }

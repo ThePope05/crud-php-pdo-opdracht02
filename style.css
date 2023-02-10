@@ -13,7 +13,7 @@ body{
 
 body > fieldset{
     width: 70%;
-    height: 85vh;
+    height: 80vh;
     background-color: white;
     border-radius: 1rem;
     box-shadow: .5rem .5rem 0 rgba(101, 101, 101, 0.505);

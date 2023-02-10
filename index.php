@@ -16,6 +16,29 @@
         <legend>
             <h1>All rollercosters</h1>
         </legend>
+        <label for="park">Catagory</label>
+        <select name="park" oninput="window.location.href = 'index.php?park=' + this.value">
+            <option value="">All</option>
+            <?php
+                include("phpFiles/read.php");
+
+                if(isset($_GET['park'])){
+                    $allCoasters = retInfo();
+                    $isSet = $_GET['park'];
+                }else{
+                    $allCoasters = retInfo();
+                    $isSet = false;
+                }
+
+                foreach($allCoasters as $coaster){
+                    echo "<option value='$coaster->park'";
+                    if($isSet == $coaster->park){
+                        echo "selected";
+                    }
+                    echo ">$coaster->park</option>";
+                }
+            ?>
+        </select>
         <table>
             <tr>
                 <th>ID</th>
@@ -30,11 +53,15 @@
                 <th>Delete</th>
             </tr>
             <?php
-                include("phpFiles/read.php");
+                //include("phpFiles/read.php");
 
-                $allCosters = retInfo();
+                if(isset($_GET['park'])){
+                    $allCoasters = retInfo($_GET['park']);
+                }else{
+                    $allCoasters = retInfo();
+                }
 
-                foreach($allCosters as $coaster){
+                foreach($allCoasters as $coaster){
                     echo "<tr>";
                         echo "<td>$coaster->id</td>";
                         echo "<td>$coaster->name</td>";

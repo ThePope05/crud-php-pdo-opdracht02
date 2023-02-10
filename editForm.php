@@ -32,29 +32,26 @@
             <input type="text" name="id" class="coasterId" readonly value="<?php echo $itemInfo->id;?>">
 
             <label>Coaster name:</label>
-            <input type="text" name="name">
+            <input type="text" name="name" value="<?php echo $itemInfo->name;?>">
 
             <label>Park name:</label>
-            <input type="text" name="park">
+            <input type="text" name="park" value="<?php echo $itemInfo->park;?>">
 
             <label>Country:</label>
-            <input type="text" name="country">
+            <input type="text" name="country" value="<?php echo $itemInfo->country;?>">
             
             <label>Top speed:</label>
-            <input type="text" name="topSpeed">
+            <input type="text" name="topSpeed" value="<?php echo $itemInfo->topSpeed;?>">
             
             <label>Height:</label>
-            <input type="text" name="height">
+            <input type="text" name="height" value="<?php echo $itemInfo->height;?>">
             
             <label>Opening date:</label>
-            <input type="date" name="date">
-            
-            <label>Country:</label>
-            <input type="text" name="country">
+            <input type="date" name="date" value="<?php echo $itemInfo->date;?>">
 
-            <label>Rating: <output>5.5</output></label>
+            <label>Rating: <output><?php echo $itemInfo->rating;?></output></label>
             <input type="range" name="rating" min="0" max="10" step="0.1"
-            oninput="document.querySelector('output').innerHTML = this.value">
+            oninput="document.querySelector('output').innerHTML = this.value" value="<?php echo $itemInfo->rating;?>">
 
             <button type="submit">Submit</button>
         </form>

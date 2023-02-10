@@ -10,7 +10,7 @@ try {
     echo $e->getMessage();
 }
 
-$sql = "DELETE FROM pizzas WHERE id = :ID";
+$sql = "DELETE FROM rollercoaster WHERE id = :ID";
 
 $statement = $pdo->prepare($sql);
 
@@ -19,10 +19,10 @@ $statement->bindValue(":ID", $_GET["id"]);
 $statement->execute();
 
 if($statement){
-    echo "Record is verwijderd";
+    echo "Record is deleted";
     header('Refresh:3; url=../index.php');
 }
 else{
-    echo "Record is niet verwijderd";
+    echo "Record is not deleted";
     header('Refresh:3; url=../index.php');
 }
