@@ -30,6 +30,8 @@
                     $isSet = false;
                 }
 
+                $allCatagorys = "";
+
                 foreach($allCoasters as $coaster){
                     echo "<option value='$coaster->park'";
                     if($isSet == $coaster->park){
